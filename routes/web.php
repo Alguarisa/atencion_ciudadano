@@ -26,3 +26,7 @@ Route::get('/prueba', function () {
     return view('admin.prueba');
 });
 
+Route::get('/usuarios', function () {
+    return view('admin.usuarios');
+});
+
