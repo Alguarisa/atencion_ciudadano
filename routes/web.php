@@ -26,7 +26,4 @@ Route::get('/prueba', function () {
     return view('admin.prueba');
 });
 
-Route::get('/usuarios', function () {
-    return view('admin.usuarios');
-});
-
+Route::resource('usuarios', 'UsuariosController');
