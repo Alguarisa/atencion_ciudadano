@@ -22,7 +22,7 @@
 
 </head>
 
-<body class="bg-gradient-success">
+<body style="background: url( {{ asset('img/free-background-green-yellow-1639359.jpg') }})">
 
     <div class="container">
 
