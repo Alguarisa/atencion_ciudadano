@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UsuariosController extends Controller
 {
@@ -40,7 +41,22 @@ class UsuariosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $nombre = strtoupper($request->nombre." ".$request->apellido);
+        $email = strtolower($request->email);
+        $clave = Hash::make($request->password);
+        
+        
+
+        $usuario = new User();
+        $usuario->name = $nombre;
+        $usuario->email = $email;
+        $usuario->password = $clave;
+        $usuario->save();
+
+        return back();
+
+        dd($request->all());
     }
 
     /**
@@ -85,6 +101,8 @@ class UsuariosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $usuario = User::find($id);
+        $usuario->delete();
+        return back();
     }
 }
